@@ -34,12 +34,18 @@ window.onload = () => {
     main();
     updateColorCodeToDOM(defaultColor)
 
+    // display preset colors 
     displayColorBoxs(document.getElementById('color-plate'), colorsArr)
 
-    colors = localStorage.getItem('custom-colours')
-    customColor = JSON.parse(colors)
-    console.log(customColor);
-    displayColorBoxs(document.getElementById('custom-color-plate'),customColor)
+    const colorString = localStorage.getItem('custom-colours')
+
+    if (colorString) {
+        customColor = JSON.parse(colorString)
+        
+        displayColorBoxs(document.getElementById('custom-color-plate'),customColor)
+    }
+
+
 }
 
 /**
